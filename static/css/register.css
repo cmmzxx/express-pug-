@@ -1,0 +1,29 @@
+.form-wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+.item {
+  margin: 15px 0;
+}
+.item > p{
+  font-size: 20px;
+}
+.item > input {
+  padding-left: 1px;
+  margin: 10px 0;
+  outline: none;
+  border-radius: 5px;
+  font-size: 18px;
+  background-color: rgba(255,255,255,0.7);
+}
+.item > button{
+  border-radius: 5px;
+}
+.register-button{
+  text-align: center;
+}
+.register-button > button {
+  font-size: 15px;
+  padding: 3px 8px;
+}

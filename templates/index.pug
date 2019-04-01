@@ -1,0 +1,22 @@
+extends layout.pug
+
+block append head
+  link(rel="stylesheet", href="/static/css/index.css")
+  
+block content
+  div.menu
+    - var menu = [{title:'全部',url:'/'}]
+    each item in menu
+      span
+        a(href=item.url)= item.title
+  ul.list
+    each post in posts
+      li.item
+        div.post
+          img(src="/avatars/" + post.avatar alt=post.name width=50 height=50)
+          p.title
+            a(target="_blank" href="/post/" + post.id)= post.title
+        div.detail
+            a(href="/user/" + post.userId)= post.name
+            span.time= new Date(post.timestamp).toLocaleString()
+          

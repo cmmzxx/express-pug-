@@ -1,0 +1,30 @@
+extends layout.pug
+
+block append head
+  link(rel="stylesheet", href="/static/css/login.css")
+
+block content
+  div.form-wrapper
+    form.form(action="/login" method="post")
+      div.item
+        p 用户名
+        div
+          input.user(type="text" name="username" placeholder="请输入用户名")
+      div.item
+        p 密码
+        div
+          input.passwd(type="password" name="password" placeholder="请输入密码")
+      div.item
+        p 你是机器人么?
+        div
+          img(src="/captcha")
+      div.item
+        p 验证码
+        div
+          input(type="text" name="captcha" placeholder="请输入验证码")
+      div.button-login
+        button 登陆
+block logic
+  script(src="/static/js/login.js")
+    
+    

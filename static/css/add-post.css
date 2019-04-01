@@ -1,0 +1,59 @@
+.form-wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+  width: 100%;
+}
+.form{
+  width: 100%;
+}
+.title{
+  width: 100%;
+  margin-bottom: 20px;
+}
+.title > p {
+  padding-left: 3px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.title>input{
+  width: 100%;
+  outline: none;
+  font-size: 16px;
+  padding: 6px 2px;
+  border-radius: 5px;
+  box-shadow: inset 2px 2px 20px rgba(0,0,0,.2)
+}
+
+.content{
+  width: 100%;
+}
+.content > p{
+  padding-left: 3px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.content > textarea{
+  width: 100%;
+  resize: none;
+  padding: 6px 2px;
+  outline: none;
+  box-shadow: inset 3px 3px 100px rgba(0,0,0,0.2);
+  font-size: 16px;
+}
+
+.post-button {
+  margin-top: 20px;
+  text-align: right;
+}
+.post-button > button {
+  margin-right: 10px;
+  box-shadow: inset 2px 2px 20px rgba(0,0,0,.2);
+  font-size: 18px;
+  padding: 3px 8px;
+  border: 1px solid rgba(0,0,0,.5);
+}

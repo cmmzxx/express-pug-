@@ -1,0 +1,46 @@
+extends layout.pug
+block append head
+  link(rel="stylesheet", href="/static/css/post.css")
+
+block content
+  div.post-wrapper
+    h1.title= post.title
+      if post.userId==user.id
+        a(href="/deletePost/" + post.id) 删除
+      else
+    div.item
+      div.postowner
+        div.avatar
+          img(src="/avatars/" + post.avatar alt=post.name)
+        div
+          a.name(href="/user/" + post.userId)= post.name 
+      div.content
+        p= post.content
+      div.msg
+        span 楼主
+        span= new Date(post.timestamp).toLocaleString()
+    if comments
+      ul.comments
+        each comment in comments
+          li.list
+            div.comment-owner
+              img(src="/avatars/" + comment.avatar, alt=comment.name width=30 height=30)
+              div
+                a(href="/user/" + comment.userId)= comment.name
+            div.comment-content= comment.content
+            div.comment-other
+              if user.id==post.userId
+                span.louzhu 楼主
+              span.time= new Date(comment.timestamp).toLocaleString()
+              if user.id==comment.userId || post.userId==user.id
+                a.del(href="/deleteComment/" + comment.id) 删除
+    else
+      p 还没有人评论哦
+
+    div.form-wrapper
+      form.form(action="/add-comment" method="post")
+        input(hidden=true name="postId" value=post.id)
+        div.content
+          textarea(placeholder="请输入您的评论" name="content" required rows=6)
+        div.comment-button
+          button 发表评论

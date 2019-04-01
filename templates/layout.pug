@@ -1,0 +1,38 @@
+doctype html
+html
+  head
+    block head
+      title Simple-BBS
+      meta(charset="utf-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1")
+      link(rel="stylesheet", href="/static/css/common.css")
+      <link href="https://cdn.bootcss.com/minireset.css/0.0.2/minireset.css" rel="stylesheet">
+      link(rel="stylesheet" href="/static/css/layout.css")
+      script(src="/static/js/axios.js")
+  body
+    div.header
+      div
+        div.search
+          span Simple-BBS
+          input(type="text")
+        div.button
+          span
+            a(href="/") 首页
+          if user.id
+            span
+              a(href="/add-post") 发帖
+            span 欢迎~
+              a(href="/user/" + user.id)= user.name
+            span
+              a(href="/logout") 退出
+          else
+            span
+              a(href="/login") 登陆
+            span
+              a(href="/register") 注册
+    div.container
+      block content
+
+    footer
+      p copyright
+    block logic

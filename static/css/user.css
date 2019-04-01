@@ -1,0 +1,116 @@
+.user-wrapper{
+  width: 100%;
+  padding: 10px 0 40px 0;
+}
+
+.owner{
+  display: flex;
+  padding: 4px 8px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2)
+}
+.name{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.avatar{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.avatar-el{
+  margin-bottom: 10px;
+}
+.avatar, .avatar > img {
+  width: 60px;
+}
+.avatar> img{
+  height: 50px;
+}
+.upload{
+  overflow: hidden;
+  position: relative;
+  margin: 5px 0;
+}
+.upload > span {
+  font-size: 12px;
+  border: 1px solid rgba(0, 0, 0, .4);
+  padding: 3px 5px;
+  border-radius: 4px;
+}
+.select{
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+}
+.submit{
+  opacity: 0;
+  position: absolute;
+  top: 0;
+}
+
+.title{
+  height: 40px;
+  line-height: 40px;
+  padding-left: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2)
+}
+
+.posts{
+  counter-reset: s1;
+}
+.posts > li, .comments > li {
+  display: flex;
+  padding: 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+}
+.posts > li::before{
+  counter-increment: s1 1;
+  content: counter(s1) '.';
+  margin-top: 5px;
+  margin-right: 3px;
+}
+.post,.comment{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  overflow: hidden;
+  flex: 1;
+}
+.post > p, .comment > p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: right;
+  font-size: 14px;
+  flex: 0 0 70px;
+}
+.detail > span {
+  align-self: flex-end;
+  font-size: 11px
+}
+.detail > a{
+  margin-bottom: 10px;
+  min-height: 16px;
+}
+.comments{
+  counter-reset: s2;
+}
+.comments > li::before {
+  counter-increment: s2 1;
+  content: counter(s2) '.';
+  margin-top: 5px;
+  margin-right: 3px;
+}
+
+p.not-found {
+  padding: 40px 0;
+  text-align: center;
+}

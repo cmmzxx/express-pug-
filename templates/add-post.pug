@@ -1,0 +1,15 @@
+extends layout.pug
+block append head
+  link(rel="stylesheet", href="/static/css/add-post.css")
+
+block content
+  div.form-wrapper
+    form.form(action="/add-post" method="post")
+      div.title
+        p 发表新帖
+        input(type="text" placeholder="标题" name="title" required)
+      div.content
+        p 发帖内容
+        textarea(name="content" placeholder="请输入发贴内容" rows=8 required)
+      div.post-button
+        button 提交

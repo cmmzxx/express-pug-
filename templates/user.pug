@@ -1,0 +1,51 @@
+extends layout.pug
+
+block append head
+  link(rel="stylesheet", href="/static/css/user.css")
+block content
+  if loginUser
+    div.user-wrapper
+      div.owner
+        div.name
+          span 个人信息
+          span 姓名: #{loginUser.name}
+        div.avatar
+          img.avatar-el(src="/avatars/" + loginUser.avatar alt=loginUser.name)
+          if loginUser.id
+            div.upload
+              span 上传头像
+              form.avatar-form(action="/changeAvatar"
+              method="POST" enctype="multipart/form-data")
+                input.submit(type="submit")
+                input.select(type="file" name="avatar")
+      p.title 他发过的帖子
+      ol.posts
+        each post in posts
+          li
+            div.post
+              a(href="/post/" + post.id target="_blank")= post.title
+              p= post.content
+            div.detail
+              if loginUser.id
+                a(href="/deletePost" + post.id) 删除
+              if !loginUser.id
+                a
+              span.time= new Date(post.timestamp).toLocaleString()
+      p.title 他评论过的帖子
+      ol.comments
+        each userComment in userComments
+          li
+            div.comment
+              a(href="/post/" + userComment.postId)= userComment.title
+              p= userComment.content
+            div.detail
+              if loginUser.id
+                a(href="/deleteComment/" + userComment.id) 删除
+              if !loginUser.id
+                a
+              span.time= new Date(userComment.timestamp).toLocaleString()
+  else
+    p.not-found 未查询到该账号,请
+      a(href="/register") 注册
+block logic
+  script(src="/static/js/user.js")
